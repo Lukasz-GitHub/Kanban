@@ -1,0 +1,19 @@
+.delete {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: red;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.value {
+  font-size: 20px;
+  padding: 10px;
+}
+.edit {
+  font-size: 15px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}

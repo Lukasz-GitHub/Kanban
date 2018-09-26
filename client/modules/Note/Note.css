@@ -1,1 +1,6 @@
 /* Note styles */
+.Note {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 5px;
+}
