@@ -5,12 +5,22 @@ import Edit from '../../components/Edit';
 
 import styles from './Lane.css';
 
-const Lane = (props) => {
-  const { lane, laneNotes, updateLane, addNote, deleteLane } = props;
-  const laneId = lane.id;
-
-  return (
-    <div className={styles.Lane}>
+class Lane extends React.Component {
+  render() {
+    const { 
+      connectDropTarget, 
+      lane, 
+      laneNotes, 
+      editLane, 
+      addNote, 
+      updateLane, 
+      deleteLane, 
+    } = this.props;
+      
+    const laneId = lane.id;
+      
+    return connectDropTarget(
+      <div className={styles.Lane}>
       <div className={styles.LaneHeader}>
         <div className={styles.LaneAddNote}>
           <button onClick={() => addNote({ task: 'New Note'}, laneId)}>Add Note</button>
@@ -25,14 +35,15 @@ const Lane = (props) => {
         <div className={styles.LaneDelete}>
           <button onClick={() => deleteLane(laneId)}>Remove Lane</button>
         </div>
-      </div>
+        </div>
       <NotesContainer
         notes={laneNotes}
         laneId={laneId}
       />
-    </div>
-  );
-};
+      </div>
+     );
+  };
+}
 
 Lane.propTypes = {
   lane: PropTypes.object,
@@ -40,6 +51,7 @@ Lane.propTypes = {
   addNote: PropTypes.func,
   updateLane: PropTypes.func,
   deleteLane: PropTypes.func,
+  editLane: PropTypes.func,
 };
 
 export default Lane;
